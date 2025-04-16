@@ -10,19 +10,27 @@ export const API_PATHS = {
   DASHBOARD: {
     GET_DATA: "/api/v1/dashboard",
   },
-  INCOME:{
+  INCOME: {
     ADD_INCOME: "/api/v1/income/add",
     GET_ALL_INCOME: "/api/v1/income/get",
-    DELETE_INCOME: (incomeId) =>  `/api/v1/income/${incomeId}`,
-    DOWNLOAD_INCOME: `/api/v1/income/downloadexcel`,
+    DELETE_INCOME: (incomeId) => `/api/v1/income/${incomeId}`, // ✅ corrected template literal
+    DOWNLOAD_INCOME: "/api/v1/income/downloadexcel",           // ✅ wrapped in quotes
   },
-  EXPENSE:{
+  EXPENSE: {
     ADD_EXPENSE: "/api/v1/expense/add",
     GET_ALL_EXPENSE: "/api/v1/expense/get",
-    DELETE_EXPENSE: (expenseId) =>  `/api/v1/expense/${expenseId}`,
-    DOWNLOAD_EXPENSE: `/api/v1/expense/downloadexcel`,
+    DELETE_EXPENSE: (expenseId) => `/api/v1/expense/${expenseId}`, // ✅ corrected
+    DOWNLOAD_EXPENSE: "/api/v1/expense/downloadexcel",             // ✅ wrapped in quotes
   },
   IMAGE: {
     UPLOAD_IMAGE: "/api/v1/auth/upload-image",
+  },
+
+  // ✅ NEW SECTION FOR TWO ACCOUNTS
+  ACCOUNT: {
+    GET_PROFILE: "/api/v1/account/profile",         // GET user profile info
+    UPDATE_PROFILE: "/api/v1/account/profile",      // PUT to update profile
+    GET_BANK: "/api/v1/account/bank",               // GET bank account info
+    UPDATE_BANK: "/api/v1/account/bank",            // PUT to update bank details
   },
 };
