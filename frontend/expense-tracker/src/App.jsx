@@ -21,12 +21,12 @@ const App = () => {
       <UserProvider>
         <Router>
           <Routes>
-            <Route path="/" element={<Root />} />
-            <Route path="/login" exact element={<LoginForm />} />
-            <Route path="/signUp" exact element={<SignUpForm />} />
-            <Route path="/dashboard" exact element={<Home />} />
-            <Route path="/income" exact element={<Income />} />
-            <Route path="/expense" exact element={<Expense />} />
+            <Route path="/" element={<Navigate to="/login" />} />
+            <Route path="/login" element={<LoginForm />} />
+            <Route path="/signUp" element={<SignUpForm />} />
+            <Route path="/dashboard" element={<Home />} />
+            <Route path="/income" element={<Income />} />
+            <Route path="/expense" element={<Expense />} />
           </Routes>
         </Router>
 
@@ -34,26 +34,12 @@ const App = () => {
           toastOptions={{
             className: "",
             style: {
-              fontSize:'13px'
+              fontSize: '13px',
             },
           }}
         />
-        
       </UserProvider>
     </div>
-  );
-};
-
-// Define the Root component to handle the initial redirect
-const Root = () => {
-  // Check if token exists in localStorage
-  const isAuthenticated = !!localStorage.getItem("token");
-
-  // Redirect to dashboard if authenticated, otherwise to login
-  return isAuthenticated ? (
-    <Navigate to="/dashboard" />
-  ) : (
-    <Navigate to="/login" />
   );
 };
 
